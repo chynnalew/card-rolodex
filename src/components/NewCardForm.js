@@ -1,12 +1,28 @@
 import React from "react";
-// import PropTypes from 'prop-types';
-// import { v4 } from 'uuid';
+import { v4 } from 'uuid';
 
 function NewCardForm(props) {
+
+  function handleFormSubmission(event) {
+    event.preventDefault();
+    props.onFormSubmission({
+      name: event.target.name.value,
+      level: event.target.level.value,
+      description: event.target.description.value,
+      attack1: event.target.attack1.value,
+      attack1Stats: event.target.attack1Stats.value,
+      attack1Description: event.target.attack1Description.value,
+      attack2: event.target.attack2.value,
+      attack2Stats: event.target.attack2Stats.value,
+      attack2Description: event.target.attack2Description,
+      id: v4()
+    })
+  }
+
   return (
     <div className="newCardForm">
       <h1>Add a card</h1>
-      <form>
+      <form onSubmist={handleFormSubmission}>
         <label>Name</label>
         <br />
         <input type="text" name="name" placeholder="Card Name" />

@@ -44,8 +44,7 @@ class AppControl extends React.Component {
   render() {
     const controlStyle = {
       width: '100vw',
-      position: 'fixed',
-      marginTop: '150px',
+      marginTop: '10px',
     }
 
     let currentlyVisibleState = null;

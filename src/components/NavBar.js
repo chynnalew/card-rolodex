@@ -6,12 +6,11 @@ function NavBar(props) {
   const navBarStyle = {
     height: '20px',
     width: '100%',
-    position: 'fixed',
     backgroundColor: 'black',
-    marginTop: '90px',
     textAlign: 'center',
     borderBottom: '3px white solid',
-    paddingBottom: '10px'
+    padding: '10px',
+    position: 'sticky',
   }
   const buttonStyle = {
     background: 'transparent',

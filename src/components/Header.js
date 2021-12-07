@@ -6,14 +6,12 @@ function Header() {
     height: '86px',
     backgroundColor: 'white',
     color: 'black',
-    position: 'fixed',
-    top: '0',
-    left:'0'
+    verticalAlign: 'middle',
+    lineHeight:'86px'
   }
   return (
     <div style={headerStyle}>
       <h3>Card Rolodex</h3>
-      <p>Create your own TCG playing cards!</p>
     </div>
   )
 }
