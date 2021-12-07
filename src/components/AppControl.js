@@ -56,9 +56,9 @@ class AppControl extends React.Component {
   };
 
   handleAddNewCard = (newCard) => {
-    const newCardList = this.state.cardList.concat(newCard);
+    const newCardList = this.state.userCardList.concat(newCard);
     this.setState({
-      cardList: newCardList,
+      userCardList: newCardList,
       sampleListIsVisible: false,
       userListIsVisible:true,
       formIsVisible: false,
@@ -75,7 +75,7 @@ class AppControl extends React.Component {
 
     let currentlyVisibleState = null;
     if (this.state.formIsVisible) {
-      currentlyVisibleState = <NewCardForm />;
+      currentlyVisibleState = <NewCardForm onNewCardClick={this.handleAddNewCard}/>;
     } else if (this.state.sampleListIsVisible) {
       currentlyVisibleState = (
         <CardList cardList={this.state.sampleCardList} />

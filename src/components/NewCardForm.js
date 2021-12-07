@@ -1,11 +1,12 @@
 import React from "react";
 import { v4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 function NewCardForm(props) {
 
   function handleFormSubmission(event) {
     event.preventDefault();
-    props.onFormSubmission({
+    props.onNewCardClick({
       name: event.target.name.value,
       level: event.target.level.value,
       description: event.target.description.value,
@@ -22,7 +23,7 @@ function NewCardForm(props) {
   return (
     <div className="newCardForm">
       <h1>Add a card</h1>
-      <form onSubmist={handleFormSubmission}>
+      <form onSubmit={handleFormSubmission}>
         <label>Name</label>
         <br />
         <input type="text" name="name" placeholder="Card Name" />
@@ -71,6 +72,10 @@ function NewCardForm(props) {
       </form>
     </div>
   );
+}
+
+NewCardForm.propTypes = {
+  onNewCardClick: PropTypes.func
 }
 
 export default NewCardForm;
