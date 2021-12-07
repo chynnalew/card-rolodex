@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header';
 
 class AppControl extends React.Component {
   constructor() {
@@ -25,6 +26,7 @@ class AppControl extends React.Component {
   render() {
     return (
       <div className='app-control'>
+        <Header />
         {
           this.state.monsters.map(monster =>
             <p key={monster.id}>monster: {monster.name}</p>
