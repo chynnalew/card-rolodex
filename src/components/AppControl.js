@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import CardList from './CardList';
 
 class AppControl extends React.Component {
   constructor() {
@@ -32,6 +33,7 @@ class AppControl extends React.Component {
             <p key={monster.id}>monster: {monster.name}</p>
           )
         }
+        <CardList />
       </div>
     )
   }
