@@ -23,6 +23,20 @@ This application uses React.js with firebase and authentication to allow the use
     - delete cards
     - edit existing cards
 
+## component plan:
+- components:
+  - App Control:
+    - header
+    - navbar
+    - card list
+      - card
+    - user card list
+      - card
+    - add card
+      - form
+    - update card
+      -form
+    - register/ login/ logout
 
 ## Setup/Installation Requirements
 
