@@ -19,24 +19,24 @@ function NavBar(props) {
     fontSize: 'large',
     fontWeight: 'bold',
     fontFamily: 'monospace',
-    width:'25%'
+    width:'20%'
   }
 
   return (
     <div style={navBarStyle}>
-      <div >
-        <button style={buttonStyle} class='buttons' onClick={() => props.onViewCardsClick()}>View Cards</button>
-        <button style={buttonStyle} class='buttons' onClick={() => props.onAddCardClick()}>Add a Card</button>
         <button style={buttonStyle} class='buttons' onClick={() => props.onInstructionsClick()}>Instructions</button>
-      </div>
+        <button style={buttonStyle} class='buttons' onClick={() => props.onViewSampleCardsClick()}>Examples</button>
+        <button style={buttonStyle} class='buttons' onClick={() => props.onViewUserCardsClick()}>Your Cards</button>
+        <button style={buttonStyle} class='buttons' onClick={() => props.onAddCardClick()}>Add a Card</button>
     </div>
   )
 }
 
 NavBar.propTypes = {
-  onVieCardsClick: PropTypes.func,
+  onViewSampleCardsClick: PropTypes.func,
   onAddCardClick: PropTypes.func,
-  onInstructionsClick: PropTypes.func
+  onInstructionsClick: PropTypes.func,
+  onViewUserCardsClick: PropTypes.func,
 }
 
 export default NavBar;
