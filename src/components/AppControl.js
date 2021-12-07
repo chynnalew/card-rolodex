@@ -44,12 +44,8 @@ class AppControl extends React.Component {
   render() {
     const controlStyle = {
       width: '100vw',
-      height:'100vw',
       position: 'fixed',
       marginTop: '150px',
-      overflow: 'scroll',
-      borderLeft: 'white 7px solid',
-      left:'0'
     }
 
     let currentlyVisibleState = null;

@@ -7,7 +7,6 @@ function Header() {
     backgroundColor: 'white',
     color: 'black',
     position: 'fixed',
-    paddingLeft: '20px',
     top: '0',
     left:'0'
   }
