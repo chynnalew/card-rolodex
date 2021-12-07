@@ -27,9 +27,11 @@ function CardList() {
       attack2Description: "Heal yourself 20 hp",
       id: "5",
     },
+    
   ];
   return (
     <div className="cardList">
+      <h1>Card List</h1>
       {sampleCardList.map((card, index) => (
         <Card
           name={card.name}

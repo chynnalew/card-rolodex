@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import CardList from './CardList';
 import NewCardForm from './NewCardForm';
+import NavBar from './NavBar';
 
 class AppControl extends React.Component {
   constructor() {
@@ -9,11 +10,48 @@ class AppControl extends React.Component {
 
     this.state = {
       listIsVisible: true,
-      formIsVisible: true,
+      formIsVisible: false,
+      instructionsAreVisible: false,
     }
   }
 
+  handleViewCardsClick = () => {
+    this.setState({
+      listIsVisible: true,
+      formIsVisible: false,
+      instructionsAreVisible: false,
+    })
+  }
+
+  handleAddCardClick = () => {
+    this.setState({
+      listIsVisible: false,
+      formIsVisible: true,
+      instructionsAreVisible: false,
+    })
+  }
+
+  handleInstructionsClick = () => {
+    this.setState({
+      listIsVisible: false,
+      formIsVisible: false,
+      instructionsAreVisible: true,
+    })
+  }
+
+  
+
   render() {
+    const controlStyle = {
+      width: '100vw',
+      height:'100vw',
+      position: 'fixed',
+      marginTop: '150px',
+      overflow: 'scroll',
+      borderLeft: 'white 7px solid',
+      left:'0'
+    }
+
     let currentlyVisibleState = null;
     if (this.state.formIsVisible) {
       currentlyVisibleState = <NewCardForm />
@@ -23,7 +61,11 @@ class AppControl extends React.Component {
     return (
       <div className='app-control'>
         <Header />
-        {currentlyVisibleState}
+        <NavBar
+          onViewCardsClick={this.handleViewCardsClick}
+          onAddCardClick={this.handleAddCardClick}
+          onInstructionsClick={this.handleInstructionsClick}/>
+        <div style={controlStyle}>{currentlyVisibleState}</div>
       </div>
     )
   }
