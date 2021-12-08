@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import PropTypes from 'prop-types';
 
-function CardList(props) {
+function ViewSampleCardList(props) {
   const cardListStyle = {
     padding: '20px',
   }
@@ -22,7 +22,6 @@ function CardList(props) {
             attack2Stats={card.attack2Stats}
             attack2Description={card.attack2Description}
             id={card.id}
-            whenCardDeleted={props.onDeleteClick}
           />
         ))}
       </div>
@@ -37,9 +36,9 @@ function CardList(props) {
   }
 }
 
-CardList.propTypes = {
+ViewSampleCardList.propTypes = {
   cardList: PropTypes.array,
   onDeleteClick: PropTypes.func
 }
 
-export default CardList;
+export default ViewSampleCardList;
