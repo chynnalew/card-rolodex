@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "./Header";
-import CardList from "./CardList";
-import NewCardForm from "./NewCardForm";
+import CardList from "./cardComponents/CardList";
+import NewCardForm from "./cardComponents/NewCardForm";
 import NavBar from "./NavBar";
-import { getSampleCards } from "./SampleCardList";
-import EditCard from "./EditCard";
-import ViewSampleCardList from "./ViewSampleCardList";
-import DeleteConfirm from "./DeleteConfirm";
+import { getSampleCards } from "./cardComponents/SampleCardList";
+import EditCard from "./cardComponents/EditCard";
+import ViewSampleCardList from "./cardComponents/ViewSampleCardList";
+import DeleteConfirm from "./cardComponents/DeleteConfirm";
 
 class AppControl extends React.Component {
   constructor() {
@@ -37,6 +37,17 @@ class AppControl extends React.Component {
       ],
     };
   }
+  
+
+  handleInstructionsClick = () => {
+    this.setState({
+      sampleListIsVisible: false,
+      userListIsVisible: false,
+      formIsVisible: false,
+      editFormIsVisible: false,
+      instructionsAreVisible: true,
+    });
+  };
 
   handleViewSampleCardsClick = () => {
     this.setState({
@@ -59,10 +70,23 @@ class AppControl extends React.Component {
   };
 
   handleAddCardClick = () => {
+    
     this.setState({
       sampleListIsVisible: false,
       userListIsVisible: false,
       formIsVisible: true,
+      editFormIsVisible: false,
+      instructionsAreVisible: false,
+    });
+  };
+
+  handleAddNewCard = (newCard) => {
+    const newCardList = this.state.userCardList.concat(newCard);
+    this.setState({
+      userCardList: newCardList,
+      sampleListIsVisible: false,
+      userListIsVisible: true,
+      formIsVisible: false,
       editFormIsVisible: false,
       instructionsAreVisible: false,
     });
@@ -88,28 +112,6 @@ class AppControl extends React.Component {
       .concat(inputCard);
     this.setState({
       userCardList: editedCardList,
-      sampleListIsVisible: false,
-      userListIsVisible: true,
-      formIsVisible: false,
-      editFormIsVisible: false,
-      instructionsAreVisible: false,
-    });
-  };
-
-  handleInstructionsClick = () => {
-    this.setState({
-      sampleListIsVisible: false,
-      userListIsVisible: false,
-      formIsVisible: false,
-      editFormIsVisible: false,
-      instructionsAreVisible: true,
-    });
-  };
-
-  handleAddNewCard = (newCard) => {
-    const newCardList = this.state.userCardList.concat(newCard);
-    this.setState({
-      userCardList: newCardList,
       sampleListIsVisible: false,
       userListIsVisible: true,
       formIsVisible: false,
