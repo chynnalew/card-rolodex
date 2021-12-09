@@ -19,6 +19,7 @@ class AppControl extends React.Component {
       editFormIsVisible: false,
       instructionsAreVisible: false,
       selectedCard: null,
+      editingCard: null,
       sampleCardList: getSampleCards(),
       userCardList: [
         {
@@ -72,7 +73,7 @@ class AppControl extends React.Component {
       (card) => card.id === id
     )[0];
     this.setState({
-      selectedCard: selectedCard,
+      editingCard: selectedCard,
       sampleListIsVisible: false,
       userListIsVisible: false,
       formIsVisible: false,
@@ -83,15 +84,14 @@ class AppControl extends React.Component {
 
   handleEditForm = (inputCard) => {
     const editedCardList = this.state.userCardList
-      .filter((card) => card.id !== this.state.selectedCard.id)
+      .filter((card) => card.id !== this.state.editingCard.id)
       .concat(inputCard);
     this.setState({
       userCardList: editedCardList,
       sampleListIsVisible: false,
-      userListIsVisible: false,
-      formIsVisible: true,
+      userListIsVisible: true,
+      formIsVisible: false,
       editFormIsVisible: false,
-      deleteConfirmVisible: false,
       instructionsAreVisible: false,
     });
   };
@@ -179,13 +179,14 @@ class AppControl extends React.Component {
       currentlyVisibleState = (
         <CardList
           cardList={this.state.userCardList}
+          onEditClick ={this.handleEditClick}
           onDeleteClick={this.handleDeleteCardClick}
         />
       );
     } else if (this.state.editFormIsVisible) {
       currentlyVisibleState = (
         <EditCard
-          card={this.state.selectedCard}
+          card={this.state.editingCard}
           onEditCardSubmit={this.handleEditForm}
         />
       );

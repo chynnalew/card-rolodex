@@ -15,59 +15,53 @@ function EditCard(props) {
       attack1Description: event.target.attack1Description.value,
       attack2: event.target.attack2.value,
       attack2Stats: event.target.attack2Stats.value,
-      attack2Description: event.target.attack2Description,
+      attack2Description: event.target.attack2Description.value,
       id: v4()
     })
   }
 
   return (
     <div className="editCardForm">
-      <h1>Add a card</h1>
+      <h1>Edit {props.card.name}</h1>
       <form onSubmit={handleEditForm}>
         <label>Name</label>
         <br />
-        <input type="text" name="name" placeholder="Card Name" />
-        <br />
+        <input type="text" name="name" defaultValue={props.card.name} />
+        <br /><br />
         <label>Level</label>
         <br />
-        <input type="number" name="level" placeholder="level" min="0" />
-        <br />
+        <input type="number" name="level" defaultValue={props.card.level} min="0" />
+        <br /><br />
         <label>Description</label>
         <br />
-        <textarea name="description" placeholder="Description" />
-        <br />
+        <textarea name="description" defaultValue={props.card.description} />
+        <br /><br />
         <label>Move 1 Name</label>
         <br />
-        <input type="text" name="attack1" placeholder="move 1" />
-        <br />
+        <input type="text" name="attack1" defaultValue={props.card.attack1} />
+        <br /><br />
         <label>Move 1 Stats</label>
         <br />
-        <input
-          type="text"
-          name="attack1Stats"
-          placeholder="move 1 status effect"
+        <input type="text" name="attack1Stats" defaultValue={props.card.attack1Stats}
         />
-        <br />
+        <br /><br />
         <label>Move 1 effects/description</label>
         <br />
-        <textarea name="attack1Description" placeholder="Description" />
-        <br />
+        <textarea name="attack1Description" defaultValue={props.card.attack1Description} />
+        <br /><br />
         <label>Move 2 Name</label>
         <br />
-        <input type="text" name="attack2" placeholder="move 2" />
-        <br />
+        <input type="text" name="attack2" defaultValue={props.card.attack2} />
+        <br /><br />
         <label>Move 2 Stats</label>
         <br />
-        <input
-          type="text"
-          name="attack2Stats"
-          placeholder="move 2 status effect"
+        <input type="text" name="attack2Stats" defaultValue={props.card.attack2Stats}
         />
-        <br />
+        <br /><br />
         <label>Move 2 effects/description</label>
         <br />
-        <textarea name="attack2Description" placeholder="Attack 2 Description" />
-        <br />
+        <textarea name="attack2Description" defaultValue={props.card.attack2Description} />
+        <br /><br />
         <button class="hover" type="submit" >Edit Card</button >
       </form>
     </div>
@@ -75,6 +69,7 @@ function EditCard(props) {
 }
 
 EditCard.propTypes = {
+  card: PropTypes.object,
   onEditCardSubmit: PropTypes.func
 }
 
