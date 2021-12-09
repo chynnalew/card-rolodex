@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import { getSampleCards } from "./SampleCardList";
 import EditCard from "./EditCard";
 import ViewSampleCardList from "./ViewSampleCardList";
+import DeleteConfirm from "./DeleteConfirm";
 
 class AppControl extends React.Component {
   constructor() {
@@ -13,20 +14,33 @@ class AppControl extends React.Component {
 
     this.state = {
       sampleListIsVisible: true,
-      userListIsVisible:false,
+      userListIsVisible: false,
       formIsVisible: false,
       editFormIsVisible: false,
       instructionsAreVisible: false,
       selectedCard: null,
       sampleCardList: getSampleCards(),
-      userCardList: [],
+      userCardList: [
+        {
+          name: "Tom2",
+          level: "51",
+          description: "That other dude",
+          attack1: "Big Attack",
+          attack1Stats: "10 attack",
+          attack1Description: "do the attack",
+          attack2: "Big Heals",
+          attack2Stats: "20 heal",
+          attack2Description: "Heal yourself 20 hp",
+          id: "51",
+        },
+      ],
     };
   }
 
   handleViewSampleCardsClick = () => {
     this.setState({
       sampleListIsVisible: true,
-      userListIsVisible:false,
+      userListIsVisible: false,
       formIsVisible: false,
       editFormIsVisible: false,
       instructionsAreVisible: false,
@@ -46,7 +60,7 @@ class AppControl extends React.Component {
   handleAddCardClick = () => {
     this.setState({
       sampleListIsVisible: false,
-      userListIsVisible:false,
+      userListIsVisible: false,
       formIsVisible: true,
       editFormIsVisible: false,
       instructionsAreVisible: false,
@@ -54,33 +68,38 @@ class AppControl extends React.Component {
   };
 
   handleEditClick = (id) => {
-    const selectedCard = this.state.userCardList.filter(card => card.id === id)[0];
+    const selectedCard = this.state.userCardList.filter(
+      (card) => card.id === id
+    )[0];
     this.setState({
       selectedCard: selectedCard,
       sampleListIsVisible: false,
-      userListIsVisible:false,
+      userListIsVisible: false,
       formIsVisible: false,
       editFormIsVisible: true,
       instructionsAreVisible: false,
     });
-  }
+  };
 
   handleEditForm = (inputCard) => {
-    const editedCardList = this.state.userCardList.filter(card => card.id !== this.state.selectedCard.id).concat(inputCard);
+    const editedCardList = this.state.userCardList
+      .filter((card) => card.id !== this.state.selectedCard.id)
+      .concat(inputCard);
     this.setState({
       userCardList: editedCardList,
       sampleListIsVisible: false,
-      userListIsVisible:false,
+      userListIsVisible: false,
       formIsVisible: true,
       editFormIsVisible: false,
+      deleteConfirmVisible: false,
       instructionsAreVisible: false,
     });
-  }
+  };
 
   handleInstructionsClick = () => {
     this.setState({
       sampleListIsVisible: false,
-      userListIsVisible:false,
+      userListIsVisible: false,
       formIsVisible: false,
       editFormIsVisible: false,
       instructionsAreVisible: true,
@@ -92,23 +111,45 @@ class AppControl extends React.Component {
     this.setState({
       userCardList: newCardList,
       sampleListIsVisible: false,
-      userListIsVisible:true,
+      userListIsVisible: true,
       formIsVisible: false,
       editFormIsVisible: false,
       instructionsAreVisible: false,
     });
   };
 
-  handleDeleteCard = (id) => {
-    const newUserCardList = this.state.userCardList.filter(card => card.id !== id);
+  handleDeleteCardClick = (inputCard) => {
+    const selectedCard = this.state.userCardList.filter(
+      (card) => card.id === inputCard.id
+    )[0];
     this.setState({
-      userCardList: newUserCardList,
+      selectedCard: selectedCard,
+    });
+  };
+
+  handleDeleted = (id) => {
+    const newCardList = this.state.userCardList.filter(
+      (card) => card.id !== id
+    );
+    this.setState({
+      userCardList: newCardList,
+      selectedCard: null,
       sampleListIsVisible: false,
-      userListIsVisible:true,
+      userListIsVisible: true,
       formIsVisible: false,
       editFormIsVisible: false,
       instructionsAreVisible: false,
+    });
+  };
 
+  handleGoBack = () => {
+    this.setState({
+      selectedCard: null,
+      sampleListIsVisible: false,
+      userListIsVisible: true,
+      formIsVisible: false,
+      editFormIsVisible: false,
+      instructionsAreVisible: false,
     })
   }
 
@@ -118,14 +159,36 @@ class AppControl extends React.Component {
     };
 
     let currentlyVisibleState = null;
-    if (this.state.formIsVisible) {
-      currentlyVisibleState = <NewCardForm onNewCardClick={this.handleAddNewCard}/>;
+    if (this.state.selectedCard !== null) {
+      currentlyVisibleState = (
+        <DeleteConfirm
+          card={this.state.selectedCard}
+          onDeleted={this.handleDeleted}
+          onNotDeleted={this.handleGoBack}
+        />
+      );
+    } else if (this.state.formIsVisible) {
+      currentlyVisibleState = (
+        <NewCardForm onNewCardClick={this.handleAddNewCard} />
+      );
     } else if (this.state.sampleListIsVisible) {
-      currentlyVisibleState = <ViewSampleCardList cardList={this.state.sampleCardList} onDeleteClick={this.handleDeleteCard}/>
+      currentlyVisibleState = (
+        <ViewSampleCardList cardList={this.state.sampleCardList} />
+      );
     } else if (this.state.userListIsVisible) {
-      currentlyVisibleState =  <CardList cardList={this.state.userCardList} onDeleteClick={this.handleDeleteCard}/>
-    } else if (this.state.editFormIsVisible){
-      currentlyVisibleState = <EditCard card={this.state.selectedCard} onEditCardSubmit={this.handleEditForm}/>
+      currentlyVisibleState = (
+        <CardList
+          cardList={this.state.userCardList}
+          onDeleteClick={this.handleDeleteCardClick}
+        />
+      );
+    } else if (this.state.editFormIsVisible) {
+      currentlyVisibleState = (
+        <EditCard
+          card={this.state.selectedCard}
+          onEditCardSubmit={this.handleEditForm}
+        />
+      );
     }
     return (
       <div className="app-control">
