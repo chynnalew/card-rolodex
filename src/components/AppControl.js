@@ -70,7 +70,6 @@ class AppControl extends React.Component {
   };
 
   handleAddCardClick = () => {
-    
     this.setState({
       sampleListIsVisible: false,
       userListIsVisible: false,
@@ -81,9 +80,7 @@ class AppControl extends React.Component {
   };
 
   handleAddNewCard = (newCard) => {
-    const newCardList = this.state.userCardList.concat(newCard);
     this.setState({
-      userCardList: newCardList,
       sampleListIsVisible: false,
       userListIsVisible: true,
       formIsVisible: false,

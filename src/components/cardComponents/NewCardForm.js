@@ -1,12 +1,13 @@
 import React from "react";
-import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
+import firebase from 'firebase';
 
 function NewCardForm(props) {
 
-  function handleFormSubmission(event) {
+  function addCardToFirestore(event) {
     event.preventDefault();
-    props.onNewCardClick({
+    props.onNewCardClick();
+    return firebase.firestore().collection('cards').add({
       name: event.target.name.value,
       level: event.target.level.value,
       description: event.target.description.value,
@@ -15,15 +16,14 @@ function NewCardForm(props) {
       attack1Description: event.target.attack1Description.value,
       attack2: event.target.attack2.value,
       attack2Stats: event.target.attack2Stats.value,
-      attack2Description: event.target.attack2Description,
-      id: v4()
-    })
+      attack2Description: event.target.attack2Description.value,
+    });
   }
 
   return (
     <div className="newCardForm">
       <h1>Add a card</h1>
-      <form onSubmit={handleFormSubmission}>
+      <form onSubmit={addCardToFirestore}>
         <label>Name</label>
         <br />
         <input type="text" name="name" placeholder="Card Name" />
