@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import PropTypes from "prop-types";
+import {useGetData} from '../../hooks/useGetData';
 
 function CardList(props) {
   const cardListStyle = {
@@ -33,14 +34,17 @@ function CardList(props) {
     width: '125px',
     float:'right'
   }
+  
+  const [cardList] = useGetData();
 
-  if (props.cardList.length > 0) {
+  if (cardList.length > 0) {
     return (
       <div style={cardListStyle}>
-        <h1>Card List</h1>
-        {props.cardList.map((card, index) => (
+        <h1>Your Card List</h1>
+        {cardList.map((card) => (
           <div style={cardWrapStyle}>
             <Card
+              key={card.id} 
               name={card.name}
               level={card.level}
               description={card.description}
