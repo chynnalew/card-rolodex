@@ -1,12 +1,13 @@
 import React from "react";
-import { v4 } from 'uuid';
+import firebase from 'firebase';
 import PropTypes from 'prop-types';
 
 function EditCard(props) {
 
   function handleEditForm(event) {
     event.preventDefault();
-    props.onEditCardSubmit({
+    props.onEditCardClick();
+    return firebase.firestore().collection('cards').doc(props.card.id).update({
       name: event.target.name.value,
       level: event.target.level.value,
       description: event.target.description.value,
@@ -16,9 +17,20 @@ function EditCard(props) {
       attack2: event.target.attack2.value,
       attack2Stats: event.target.attack2Stats.value,
       attack2Description: event.target.attack2Description.value,
-      id: v4()
-    })
+    });
   }
+
+  
+  // function handleEditTicketFormSubmission(event) {
+  //   event.preventDefault();
+  //   props.onEditTicket();
+  //   const propertiesToUpdate = {
+  //     names: event.target.names.value,
+  //     location: event.target.location.value,
+  //     issue: event.target.issue.value
+  //   }
+  //   return firestore.update({collection: 'tickets', doc: ticket.id }, propertiesToUpdate)
+  // }
 
   return (
     <div className="editCardForm">

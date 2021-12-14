@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 import firebase from 'firebase';
 
 function NewCardForm(props) {
@@ -17,6 +18,7 @@ function NewCardForm(props) {
       attack2: event.target.attack2.value,
       attack2Stats: event.target.attack2Stats.value,
       attack2Description: event.target.attack2Description.value,
+      id: v4()
     });
   }
 

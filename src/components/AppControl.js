@@ -7,6 +7,7 @@ import { getSampleCards } from "./cardComponents/SampleCardList";
 import EditCard from "./cardComponents/EditCard";
 import ViewSampleCardList from "./cardComponents/ViewSampleCardList";
 import DeleteConfirm from "./cardComponents/DeleteConfirm";
+import firebase from "firebase";
 
 class AppControl extends React.Component {
   constructor() {
@@ -37,7 +38,6 @@ class AppControl extends React.Component {
       ],
     };
   }
-  
 
   handleInstructionsClick = () => {
     this.setState({
@@ -79,7 +79,7 @@ class AppControl extends React.Component {
     });
   };
 
-  handleAddNewCard = (newCard) => {
+  handleAddNewCard = () => {
     this.setState({
       sampleListIsVisible: false,
       userListIsVisible: true,
@@ -90,25 +90,32 @@ class AppControl extends React.Component {
   };
 
   handleEditClick = (id) => {
-    const selectedCard = this.state.userCardList.filter(
-      (card) => card.id === id
-    )[0];
-    this.setState({
-      editingCard: selectedCard,
-      sampleListIsVisible: false,
-      userListIsVisible: false,
-      formIsVisible: false,
-      editFormIsVisible: true,
-      instructionsAreVisible: false,
-    });
+    firebase
+      .firestore()
+      .collection("cards")
+      .get()
+      .then((querySnapshot) => {
+        let arr = [];
+        async function setArr() {
+          querySnapshot.forEach((card) => arr.push(card.data()));
+        }
+        setArr().then((cardList) => {
+          cardList = arr;
+          let selectedCard = cardList.filter((card) => card.id === id)[0];
+          return this.setState({
+            editingCard: selectedCard,
+            sampleListIsVisible: false,
+            userListIsVisible: false,
+            formIsVisible: false,
+            editFormIsVisible: true,
+            instructionsAreVisible: false,
+          });
+        });
+      });
   };
 
-  handleEditForm = (inputCard) => {
-    const editedCardList = this.state.userCardList
-      .filter((card) => card.id !== this.state.editingCard.id)
-      .concat(inputCard);
+  handleEditForm = () => {
     this.setState({
-      userCardList: editedCardList,
       sampleListIsVisible: false,
       userListIsVisible: true,
       formIsVisible: false,
@@ -149,8 +156,8 @@ class AppControl extends React.Component {
       formIsVisible: false,
       editFormIsVisible: false,
       instructionsAreVisible: false,
-    })
-  }
+    });
+  };
 
   render() {
     const controlStyle = {
@@ -178,7 +185,7 @@ class AppControl extends React.Component {
       currentlyVisibleState = (
         <CardList
           cardList={this.state.userCardList}
-          onEditClick ={this.handleEditClick}
+          onEditClick={this.handleEditClick}
           onDeleteClick={this.handleDeleteCardClick}
         />
       );

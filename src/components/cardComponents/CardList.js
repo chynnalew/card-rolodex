@@ -56,7 +56,7 @@ function CardList(props) {
               attack2Description={card.attack2Description}
               id={card.id}
             />
-            <button onClick={()=>props.onEditClick(card.id)} class="hover" style={buttonStyle}>
+            <button onClick={() => props.onEditClick(card.id)} class="hover" style={buttonStyle}>
               Edit
             </button>
             <button onClick={()=>props.onDeleteClick(card)} class="hover" style={buttonStyleRed}>

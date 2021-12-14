@@ -11,7 +11,8 @@ function Card(props) {
   };
 
   return (
-      <div style={cardStyle}>
+    <div style={cardStyle}>
+      <p>id: {props.id}</p>
         <p>Name: {props.name}</p>
         <p>Level: {props.level}</p>
         <p>Description: {props.description}</p>
