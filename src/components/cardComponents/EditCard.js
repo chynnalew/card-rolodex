@@ -6,7 +6,7 @@ function EditCard(props) {
 
   function handleEditForm(event) {
     event.preventDefault();
-    props.onEditCardClick();
+    props.onEditCardSubmit();
     return firebase.firestore().collection('cards').doc(props.card.id).update({
       name: event.target.name.value,
       level: event.target.level.value,
@@ -17,6 +17,7 @@ function EditCard(props) {
       attack2: event.target.attack2.value,
       attack2Stats: event.target.attack2Stats.value,
       attack2Description: event.target.attack2Description.value,
+      id: props.card.id
     });
   }
 

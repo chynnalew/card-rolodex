@@ -8,7 +8,8 @@ function NewCardForm(props) {
   function addCardToFirestore(event) {
     event.preventDefault();
     props.onNewCardClick();
-    return firebase.firestore().collection('cards').add({
+    const setId = v4();
+    return firebase.firestore().collection('cards').doc(setId).set({
       name: event.target.name.value,
       level: event.target.level.value,
       description: event.target.description.value,
@@ -18,7 +19,7 @@ function NewCardForm(props) {
       attack2: event.target.attack2.value,
       attack2Stats: event.target.attack2Stats.value,
       attack2Description: event.target.attack2Description.value,
-      id: v4()
+      id: setId
     });
   }
 
