@@ -2,19 +2,38 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Card(props) {
-  const cardStyle = {
-    border: "5px white solid",
-    width: "300px",
-    height: "420px",
-    margin: "10px",
-    padding: "5px",
-    paddingLeft: "5px",
-    paddingRight: "5px",
-    overflow: "hidden",
-    borderRadius: "7px",
-    fontFamily: "'Nunito', sans-serif",
-    margin:'auto',
-  };
+  const borderConditions = () => {
+    if (props.borderColor === '#000000' || props.borderColor === null) {
+      return ({
+      border: `5px white solid`, 
+      width: "300px",
+      height: "420px",
+      margin: "10px",
+      padding: "5px",
+      paddingLeft: "5px",
+      paddingRight: "5px",
+      overflow: "hidden",
+      borderRadius: "7px",
+      fontFamily: "'Nunito', sans-serif",
+      margin:'auto', })
+    } else {
+      return ({ 
+        border: `5px ${props.borderColor} solid`,
+        width: "300px",
+        height: "420px",
+        margin: "10px",
+        padding: "5px",
+        paddingLeft: "5px",
+        paddingRight: "5px",
+        overflow: "hidden",
+        borderRadius: "7px",
+        fontFamily: "'Nunito', sans-serif",
+        margin:'auto',
+      })
+    }
+  }
+  const cardStyle = borderConditions();
+
   const cardTop = {
     width: "97%",
     paddingLeft: "5px",
@@ -23,16 +42,15 @@ function Card(props) {
   const cardImage = {
     height: "150px",
     width: "250px",
-    border: "4px white inset",
+    border: `4px ${props.borderColor} inset`,
     margin: "auto",
     marginTop: "25px",
   };
-  const imgStyle = {
   
+  const imgStyle = {
       objectFit: 'cover',
       height: '142px',
       width: '242px',
-
   }
 
   const cardDescription = {

@@ -54,6 +54,9 @@ function CardList(props) {
               attack2={card.attack2}
               attack2Stats={card.attack2Stats}
               attack2Description={card.attack2Description}
+              textColor={card.textColor}
+              borderColor={card.borderColor}
+              background={card.background}
               id={card.id}
             />
             <button onClick={() => props.onEditClick(card.id)} class="hover" style={buttonStyle}>
