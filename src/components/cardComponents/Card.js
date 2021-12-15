@@ -13,6 +13,7 @@ function Card(props) {
     overflow: "hidden",
     borderRadius: "7px",
     fontFamily: "'Nunito', sans-serif",
+    margin:'auto',
   };
   const cardTop = {
     width: "97%",

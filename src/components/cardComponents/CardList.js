@@ -19,7 +19,7 @@ function CardList(props) {
     color: 'lightblue',
     padding: '10px',
     margin: '5px',
-    marginLeft:'20px',
+    marginLeft:'30px',
     width: '125px',
     float: 'left'
   }
@@ -29,7 +29,7 @@ function CardList(props) {
     color: 'red',
     padding: '10px',
     margin: '5px',
-    marginRight:'20px',
+    marginRight:'30px',
     width: '125px',
     float:'right'
   }
