@@ -125,20 +125,32 @@ class AppControl extends React.Component {
   };
 
   handleDeleteCardClick = (inputCard) => {
-    const selectedCard = this.state.userCardList.filter(
-      (card) => card.id === inputCard.id
-    )[0];
-    this.setState({
-      selectedCard: selectedCard,
-    });
+    firebase
+      .firestore()
+      .collection("cards")
+      .get()
+      .then((querySnapshot) => {
+        let arr = [];
+        async function setArr() {
+          querySnapshot.forEach((card) => arr.push(card.data()));
+        }
+        setArr().then((cardList) => {
+          cardList = arr;
+          let selectedCard = cardList.filter((card) => card.id === inputCard.id)[0];
+          return this.setState({
+            selectedCard: selectedCard,
+            sampleListIsVisible: false,
+            userListIsVisible: false,
+            formIsVisible: false,
+            editFormIsVisible: true,
+            instructionsAreVisible: false,
+          });
+        });
+      });
   };
 
-  handleDeleted = (id) => {
-    const newCardList = this.state.userCardList.filter(
-      (card) => card.id !== id
-    );
+  handleDeleted = () => {
     this.setState({
-      userCardList: newCardList,
       selectedCard: null,
       sampleListIsVisible: false,
       userListIsVisible: true,

@@ -23,6 +23,7 @@ function ViewSampleCardList(props) {
             <Card
               name={card.name}
               level={card.level}
+              img={card.img}
               description={card.description}
               attack1={card.attack1}
               attack1Stats={card.attack1Stats}

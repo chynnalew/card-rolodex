@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import firebase from 'firebase';
 
 function DeleteConfirm(props) {
   const buttonStyle = {
@@ -20,11 +21,16 @@ function DeleteConfirm(props) {
     marginRight:'20px',
     width: '125px',
   }
+
+  function handleDeleteForm() {
+    async function getCard() { firebase.firestore().collection('cards').doc(props.card.id).delete() }
+    getCard().then( props.onDeleted())
+  }
   return (
     <div>
       <h1>Are you sure you want to delete {props.card.name}?</h1>
       <button style={buttonStyle} onClick={()=>props.onNotDeleted()}>Nope! Back to Safety</button>
-      <button style={buttonStyleRed} onClick={()=>props.onDeleted(props.card.id)}>Delete this card Forever</button>
+      <button style={buttonStyleRed} onClick={() => handleDeleteForm()}>Delete this card Forever</button>
     </div>
   )
 }

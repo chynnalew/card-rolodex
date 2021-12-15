@@ -1,7 +1,10 @@
+import kirby from '../../img/kirbyGif.gif';
+import sprites from '../../img/sprite.jpeg';
 const sampleCardList = [
   {
     name: "Tom",
     level: "5",
+    img: kirby,
     description: "That dude",
     attack1: "Attack",
     attack1Stats: "2attack",
@@ -14,6 +17,7 @@ const sampleCardList = [
   {
     name: "Tom2",
     level: "51",
+    img: sprites,
     description: "That other dude",
     attack1: "Big Attack",
     attack1Stats: "10 attack",

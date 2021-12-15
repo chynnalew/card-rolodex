@@ -21,18 +21,6 @@ function EditCard(props) {
     });
   }
 
-  
-  // function handleEditTicketFormSubmission(event) {
-  //   event.preventDefault();
-  //   props.onEditTicket();
-  //   const propertiesToUpdate = {
-  //     names: event.target.names.value,
-  //     location: event.target.location.value,
-  //     issue: event.target.issue.value
-  //   }
-  //   return firestore.update({collection: 'tickets', doc: ticket.id }, propertiesToUpdate)
-  // }
-
   return (
     <div className="editCardForm">
       <h1>Edit {props.card.name}</h1>

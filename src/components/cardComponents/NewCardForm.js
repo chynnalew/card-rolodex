@@ -2,16 +2,19 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 import firebase from 'firebase';
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 function NewCardForm(props) {
 
   function addCardToFirestore(event) {
     event.preventDefault();
     props.onNewCardClick();
+
     const setId = v4();
     return firebase.firestore().collection('cards').doc(setId).set({
       name: event.target.name.value,
       level: event.target.level.value,
+      img: event.target.img.value,
       description: event.target.description.value,
       attack1: event.target.attack1.value,
       attack1Stats: event.target.attack1Stats.value,
@@ -62,6 +65,10 @@ function NewCardForm(props) {
         <label>Move 2 effects/description</label>
         <br />
         <textarea name="attack2Description" placeholder="Attack 2 Description" />
+        <br /><br />
+        <label>Image</label>
+        <br/>
+        <input type='text' name='img' />
         <br /><br />
         <button class="hover" type="submit" >Add Card</button >
       </form>
