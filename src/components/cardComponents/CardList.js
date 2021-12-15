@@ -8,8 +8,7 @@ function CardList(props) {
     padding: "20px",
   };
   const cardWrapStyle = {
-    border: '1px white dashed',
-    width: "325px",
+    width: "340px",
     height: "510px",
     float: "left",
     margin: '10px'

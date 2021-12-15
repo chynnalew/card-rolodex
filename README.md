@@ -2,7 +2,7 @@
 
 #### This application allows the user to create and store custom TCG cards
 
-#### Chynna Lew
+#### Chynna Lew, Scott Hutley, Paige Tiedemann, Art Weinstein
 
 ## Technologies Used
 
@@ -15,28 +15,11 @@
 
 ## Description
 This application uses React.js with firebase and authentication to allow the user to create and store custom TCG cards. The user can:
-  - view sample cards without logging in
-  - log in to:
     - view their cards
     - add new cards
     - update cards
     - delete cards
     - edit existing cards
-
-## component plan:
-- components:
-  - App Control:
-    - header
-    - navbar
-    - card list
-      - card
-    - user card list
-      - card
-    - add card
-      - form
-    - update card
-      -form
-    - register/ login/ logout
 
 ## Setup/Installation Requirements
 
