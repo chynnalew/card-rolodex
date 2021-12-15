@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function NavBar(props) {
 
   const navBarStyle = {
-    height: '20px',
+    height: '50px',
     width: '100%',
     backgroundColor: 'black',
     textAlign: 'center',

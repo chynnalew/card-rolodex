@@ -26,6 +26,13 @@ function Card(props) {
     margin: "auto",
     marginTop: "25px",
   };
+  const imgStyle = {
+  
+      objectFit: 'cover',
+      height: '142px',
+      width: '242px',
+
+  }
 
   const cardDescription = {
     fontStyle: "italic",
@@ -69,7 +76,7 @@ function Card(props) {
         <p style={{ float: "right", margin: "0" }}>{props.level}</p>
       </div>
       <div style={cardImage}>
-        <img src={props.img} />
+        <img style={imgStyle} src={props.img} />
       </div>
       <p style={cardDescription}>{props.description}</p>
       <div style={{ display: "inline-block", width: "80%", margin: "auto" }}>

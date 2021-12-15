@@ -7,11 +7,12 @@ function Header() {
     backgroundColor: 'white',
     color: 'black',
     verticalAlign: 'middle',
-    lineHeight:'86px'
+    lineHeight: '86px',
+    fontFamily: "'Courier New', Courier, monospace"
   }
   return (
-    <div style={headerStyle}>
-      <h3>Card Rolodex</h3>
+    <div>
+      <h3 style={headerStyle}>Card Rolodex</h3>
     </div>
   )
 }
