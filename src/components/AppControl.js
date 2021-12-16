@@ -15,8 +15,8 @@ class AppControl extends React.Component {
 
     this.state = {
       sampleListIsVisible: false,
-      userListIsVisible: false,
-      formIsVisible: true,
+      userListIsVisible: true,
+      formIsVisible: false,
       editFormIsVisible: false,
       instructionsAreVisible: false,
       selectedCard: null,

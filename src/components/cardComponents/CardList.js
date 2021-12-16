@@ -58,11 +58,12 @@ function CardList(props) {
               borderColor={card.borderColor}
               background={card.background}
               id={card.id}
+              key={card.id}
             />
-            <button onClick={() => props.onEditClick(card.id)} class="hover" style={buttonStyle}>
+            <button onClick={() => props.onEditClick(card.id)} className="hover" style={buttonStyle}>
               Edit
             </button>
-            <button onClick={()=>props.onDeleteClick(card)} class="hover" style={buttonStyleRed}>
+            <button onClick={()=>props.onDeleteClick(card)} className="hover" style={buttonStyleRed}>
               Delete
             </button>
           </div>

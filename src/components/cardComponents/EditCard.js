@@ -134,39 +134,39 @@ function EditCard(props) {
         <h3> Background Image </h3>
         <label>
           <input type="radio" name="background" value="black" />
-            <img src={black} style={imageSize}/>
+            <img src={black} style={imageSize} alt=""/>
         </label>
         <label>
           <input type="radio" name="background" value="blue" />
-            <img src={blue} style={imageSize}/>
+            <img src={blue} style={imageSize} alt=""/>
         </label>
         <label>
           <input type="radio" name="background" value="bluePurple" />
-            <img src={bluePurple} style={imageSize}/>
+            <img src={bluePurple} style={imageSize} alt=""/>
         </label>
         <label>
           <input type="radio" name="background" value="green" />
-            <img src={green} style={imageSize}/>
+            <img src={green} style={imageSize} alt=""/>
         </label>
         <label>
           <input type="radio" name="background" value="pink" />
-            <img src={pink} style={imageSize}/>
+            <img src={pink} style={imageSize} alt=""/>
         </label>
         <label>
           <input type="radio" name="background" value="purple" />
-            <img src={purple} style={imageSize}/>
+            <img src={purple} style={imageSize} alt=""/>
         </label>
         <label>
           <input type="radio" name="background" value="red" />
-            <img src={red} style={imageSize}/>
+            <img src={red} style={imageSize} alt=""/>
         </label>
         <label>
           <input type="radio" name="background" value="redGreen"/>
-            <img src={redGreen} style={imageSize}/>
+            <img src={redGreen} style={imageSize} alt=""/>
         </label>
         <label>
           <input type="radio" name="background" value="yellow"/>
-            <img src={yellow} style={imageSize}/>
+            <img src={yellow} style={imageSize} alt=""/>
         </label>
 
         <Form.Field control={Button} type="submit">
