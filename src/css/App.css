@@ -3,9 +3,13 @@
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-image: url('../img/white.jpg');
+  color: black;
   /* font-family: 'Courier New', Courier, monospace; */
+}
+
+button:hover{
+  cursor:crosshair;
 }
 
 .divider {

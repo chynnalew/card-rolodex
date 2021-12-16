@@ -6,9 +6,9 @@ function NavBar(props) {
   const navBarStyle = {
     height: '50px',
     width: '100%',
-    backgroundColor: 'black',
+    backgroundColor: '#2f4f4f',
     textAlign: 'center',
-    borderBottom: '3px white solid',
+    borderBottom: '3px #e11f70 solid',
     padding: '10px',
     position: 'sticky',
   }
@@ -18,7 +18,6 @@ function NavBar(props) {
     color: 'white',
     fontSize: 'large',
     fontWeight: 'bold',
-    fontFamily: 'monospace',
     width:'20%'
   }
 

@@ -16,10 +16,10 @@ class AppControl extends React.Component {
 
     this.state = {
       sampleListIsVisible: false,
-      userListIsVisible: true,
+      userListIsVisible: false,
       formIsVisible: false,
       editFormIsVisible: false,
-      instructionsAreVisible: false,
+      instructionsAreVisible: true,
       selectedCard: null,
       editingCard: null,
       sampleCardList: getSampleCards(),

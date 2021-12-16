@@ -38,7 +38,6 @@ function NewCardForm(props) {
   }
 
   const formStyle = {
-    color: "white",
     fontSize: "20px",
   };
 

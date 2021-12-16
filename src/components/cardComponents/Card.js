@@ -65,7 +65,7 @@ function Card(props) {
   };
 
   const borderConditions = () => {
-    if (props.borderColor === "#000000" || props.borderColor === null) {
+    if (props.borderColor === null) {
       return {
         border: `5px white solid`,
         width: "300px",
@@ -78,7 +78,7 @@ function Card(props) {
         borderRadius: "7px",
         fontFamily: "'Nunito', sans-serif",
         margin: "auto",
-        color: "white",
+        color: "black",
       };
     } else {
       return {

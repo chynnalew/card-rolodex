@@ -5,7 +5,8 @@ function Instructions() {
     width: '60%',
     padding: '10px',
     textAlign: 'center',
-    margin: 'auto'
+    margin: 'auto',
+    backgroundColor: 'white'
   }
   const alignLeft = {
     textAlign: 'left'
