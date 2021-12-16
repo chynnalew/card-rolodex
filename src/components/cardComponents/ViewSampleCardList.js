@@ -31,6 +31,7 @@ function ViewSampleCardList(props) {
               attack2Stats={card.attack2Stats}
               attack2Description={card.attack2Description}
               id={card.id}
+              key = {card.id}
             />
           </div>
         ))}
