@@ -8,6 +8,7 @@ import EditCard from "./cardComponents/EditCard";
 import ViewSampleCardList from "./cardComponents/ViewSampleCardList";
 import DeleteConfirm from "./cardComponents/DeleteConfirm";
 import firebase from "firebase";
+import Instructions from "./Instructions";
 
 class AppControl extends React.Component {
   constructor() {
@@ -22,20 +23,6 @@ class AppControl extends React.Component {
       selectedCard: null,
       editingCard: null,
       sampleCardList: getSampleCards(),
-      userCardList: [
-        {
-          name: "Tom2",
-          level: "51",
-          description: "That other dude",
-          attack1: "Big Attack",
-          attack1Stats: "10 attack",
-          attack1Description: "do the attack",
-          attack2: "Big Heals",
-          attack2Stats: "20 heal",
-          attack2Description: "Heal yourself 20 hp",
-          id: "51",
-        },
-      ],
     };
   }
 
@@ -201,7 +188,12 @@ class AppControl extends React.Component {
           onDeleteClick={this.handleDeleteCardClick}
         />
       );
-    } else if (this.state.editFormIsVisible) {
+  
+    } else if (this.state.instructionsAreVisible) {
+      currentlyVisibleState = (
+        <Instructions />
+      );
+    }else if (this.state.editFormIsVisible) {
       currentlyVisibleState = (
         <EditCard
           card={this.state.editingCard}
