@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/card-rolodex/static/css/main.43a8d4e4.chunk.css",
+    "main.js": "/card-rolodex/static/js/main.dce7aa7d.chunk.js",
+    "main.js.map": "/card-rolodex/static/js/main.dce7aa7d.chunk.js.map",
+    "runtime-main.js": "/card-rolodex/static/js/runtime-main.a6305809.js",
+    "runtime-main.js.map": "/card-rolodex/static/js/runtime-main.a6305809.js.map",
+    "static/css/2.7e79bff7.chunk.css": "/card-rolodex/static/css/2.7e79bff7.chunk.css",
+    "static/js/2.aa06419e.chunk.js": "/card-rolodex/static/js/2.aa06419e.chunk.js",
+    "static/js/2.aa06419e.chunk.js.map": "/card-rolodex/static/js/2.aa06419e.chunk.js.map",
+    "static/js/3.90eb9874.chunk.js": "/card-rolodex/static/js/3.90eb9874.chunk.js",
+    "static/js/3.90eb9874.chunk.js.map": "/card-rolodex/static/js/3.90eb9874.chunk.js.map",
+    "index.html": "/card-rolodex/index.html",
+    "static/css/2.7e79bff7.chunk.css.map": "/card-rolodex/static/css/2.7e79bff7.chunk.css.map",
+    "static/css/main.43a8d4e4.chunk.css.map": "/card-rolodex/static/css/main.43a8d4e4.chunk.css.map",
+    "static/js/2.aa06419e.chunk.js.LICENSE.txt": "/card-rolodex/static/js/2.aa06419e.chunk.js.LICENSE.txt",
+    "static/media/black.a8642c97.jpeg": "/card-rolodex/static/media/black.a8642c97.jpeg",
+    "static/media/blue.b2cbe371.jpeg": "/card-rolodex/static/media/blue.b2cbe371.jpeg",
+    "static/media/bluePurple.e2941eeb.jpeg": "/card-rolodex/static/media/bluePurple.e2941eeb.jpeg",
+    "static/media/bones.0cce29cc.png": "/card-rolodex/static/media/bones.0cce29cc.png",
+    "static/media/semantic.min.css": "/card-rolodex/static/media/outline-icons.ddae9b1b.woff",
+    "static/media/kirbyGif.4ec3865a.gif": "/card-rolodex/static/media/kirbyGif.4ec3865a.gif",
+    "static/media/purple.348d6afb.jpeg": "/card-rolodex/static/media/purple.348d6afb.jpeg",
+    "static/media/racoon.f0f60b27.jpeg": "/card-rolodex/static/media/racoon.f0f60b27.jpeg",
+    "static/media/red.2006f88e.jpeg": "/card-rolodex/static/media/red.2006f88e.jpeg",
+    "static/media/App.css": "/card-rolodex/static/media/white.171031bf.jpg",
+    "static/media/yellow.c6c968c6.jpeg": "/card-rolodex/static/media/yellow.c6c968c6.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a6305809.js",
+    "static/css/2.7e79bff7.chunk.css",
+    "static/js/2.aa06419e.chunk.js",
+    "static/css/main.43a8d4e4.chunk.css",
+    "static/js/main.dce7aa7d.chunk.js"
+  ]
+}
