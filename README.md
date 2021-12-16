@@ -45,7 +45,7 @@ This application uses React.js with firebase and authentication to allow the use
 * Open the application by running the command '$ npm run start'.
 
 ## Known Bugs
-* Cards do not display in creation date order. WIP
+* none
 
 ## License
 [MIT](https://opensource.org/licenses/MIT) 2021

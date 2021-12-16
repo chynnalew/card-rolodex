@@ -31,6 +31,7 @@ function EditCard(props) {
       textColor: event.target.textColor.value,
       borderColor: event.target.borderColor.value,
       background: event.target.background.value,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       id: props.card.id,
     });
   }

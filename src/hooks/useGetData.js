@@ -4,7 +4,7 @@ import firebase from "firebase";
 export const useGetData = () => {
   const [cardList, setCardList] = React.useState([]);
   React.useEffect(() => {
-    firebase.firestore().collection("cards")
+    firebase.firestore().collection("cards").orderBy('timestamp','desc')
       .get()
       .then((querySnapshot) => {
         let arr = [];
