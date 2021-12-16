@@ -26,7 +26,7 @@ function NavBar(props) {
     <div style={navBarStyle}>
         <button style={buttonStyle} className='buttons' onClick={() => props.onInstructionsClick()}>Instructions</button>
         <button style={buttonStyle} className='buttons' onClick={() => props.onViewSampleCardsClick()}>Examples</button>
-        <button style={buttonStyle} className='buttons' onClick={() => props.onViewUserCardsClick()}>Your Cards</button>
+        <button style={buttonStyle} className='buttons' onClick={() => props.onViewUserCardsClick()}>Custom Cards</button>
         <button style={buttonStyle} className='buttons' onClick={() => props.onAddCardClick()}>Add a Card</button>
     </div>
   )

@@ -39,7 +39,7 @@ function CardList(props) {
   if (cardList.length > 0) {
     return (
       <div style={cardListStyle}>
-        <h1>Your Card List</h1>
+        <h1>Custom Cards</h1>
         {cardList.map((card) => (
           <div style={cardWrapStyle}>
             <Card
